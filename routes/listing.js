@@ -4,6 +4,8 @@ const wrapAsync = require("../utils/wrapAsync.js");
 const ExpressError = require("../utils/ExpressError.js");
 const {listingSchema}= require("../schema.js");
 const Listing = require("../models/listing.js");
+const mongoose = require("mongoose");
+
 
 const validateListing= (req,res,next)=>{
       let {error}=listingSchema.validate(req.body);
@@ -16,7 +18,7 @@ const validateListing= (req,res,next)=>{
 }
 
 //index route
-router.get("/",wrapAsync(async(req,res)=>{
+router.get("/listings",wrapAsync(async(req,res)=>{
     const allListing = await Listing.find({});
     res.render("listings/index.ejs",{allListing});
 }));
@@ -68,4 +70,4 @@ router.delete("/:id", wrapAsync(async(req, res)=>{
     res.redirect("/listings");
 }));
 
-module.exports= router;
+module.exports = router;

@@ -150,7 +150,7 @@ app.delete("/listing/:id", wrapAsync(async(req, res)=>{
 
 //signup
 app.get("/listings/signup", (req,res)=>{
-    res.redirect("user/signup");
+    res.render("user/signup.ejs");
 });
 
 
@@ -170,13 +170,13 @@ app.post("/listings/:id/review",
 }));
 
 //review delete route
-app.delete("/listings/:id/review/:reviewId", wrapAsync(async(req,res)=>{
+app.delete("/listings/:id/reviews/:reviewId", wrapAsync(async(req,res)=>{
     let{id, reviewId}= req.params;
-    await Listing.findByIdAndUpdate(id, {$pull: {review: reviewId}});
+    await Listing.findByIdAndUpdate(id, {$pull: {reviews: reviewId}});
     await Review.findByIdAndDelete(reviewId);
 
     res.redirect(`/listings/${id}`);
-}))
+}));
 // app.all("*",(req,res,next) => {
 //     next(new ExpressError(404,"Page not found!"));
 // });

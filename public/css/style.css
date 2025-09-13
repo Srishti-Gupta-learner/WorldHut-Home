@@ -10,10 +10,6 @@
     color: #222222 !important;
 }
 
-
-
-
-
 .row{
     padding: 2rem;
 }
@@ -51,4 +47,7 @@
 }
 body{
     padding: 1rem;
+}
+.review-card{
+    border: 1px solid grey;
 }

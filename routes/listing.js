@@ -5,6 +5,7 @@ const ExpressError = require("../utils/ExpressError.js");
 const {listingSchema}= require("../schema.js");
 const Listing = require("../models/listing.js");
 const mongoose = require("mongoose");
+const {isLoggedin}= require("../logware.js");
 
 
 const validateListing= (req,res,next)=>{
@@ -24,7 +25,7 @@ router.get("/",wrapAsync(async(req,res)=>{
 }));
 
 //new route
-router.get("/new",(req,res)=>{
+router.get("/new", isLoggedin,(req,res)=>{
     res.render("listings/new.ejs");
 });
 
@@ -38,7 +39,7 @@ const listing = await Listing.findById(objectId).populate("review");
 }));
 
 //create route
-router.post("/",
+router.post("/",  isLoggedin,
     validateListing,
      wrapAsync(async(req,res,next)=>{
         const newListing = new Listing(req.body.listing);
@@ -47,7 +48,7 @@ router.post("/",
 }));
 
 //update route
-router.put("/:id", 
+router.put("/:id", isLoggedin,
     validateListing,
     wrapAsync(async(req, res)=>{
      let {id}= req.params;
@@ -56,7 +57,7 @@ router.put("/:id",
 }));
 
 //edit route
-router.get("/:id/edit",wrapAsync(async(req, res)=>{
+router.get("/:id/edit",  isLoggedin, wrapAsync(async(req, res)=>{
     let {id}= req.params;
     const objectId = new mongoose.Types.ObjectId(id.trim());
     const listing = await Listing.findById(objectId); 
@@ -64,7 +65,7 @@ router.get("/:id/edit",wrapAsync(async(req, res)=>{
 }));
 
 //delete route
-router.delete("/:id", wrapAsync(async(req, res)=>{
+router.delete("/:id", isLoggedin, wrapAsync(async(req, res)=>{
     let {id}= req.params;
     let deleteListing= await Listing.findByIdAndDelete(id.trim());
     res.redirect("/listings");

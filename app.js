@@ -1,20 +1,15 @@
 const express= require("express");
 const app = express();
-const Listing = require("./models/listing.js");
 const path= require("path");
 const mongoose = require('mongoose');
 const methodOverride = require("method-override");
 const ejsMate = require("ejs-mate");
-const Review = require("./models/review.js");
-const wrapAsync = require("./utils/wrapAsync.js");
-const ExpressError = require("./utils/ExpressError.js");
-const { error } = require("console");
-const {listingSchema, reviewSchema}= require("./schema.js");
 const session= require("express-session");
 const flash = require("connect-flash");
 const passport= require("passport");
 const localStratagey = require("passport-local");   
 const User = require("./models/user.js");
+
 
 const listingRouter = require("./routes/listing.js");
 const reviewRouter = require("./routes/reviews.js");
@@ -61,10 +56,10 @@ passport.deserializeUser(User.deserializeUser());
 
 app.use((req,res,next)=>{
     res.locals.success= req.flash("success");
+    res.locals.error= req.flash("error");
+    res.locals.currUser= req.user;
     next();
 })
-
-
 
 app.use("/listings", listingRouter);
 app.use("/listings/:id/review", reviewRouter);
@@ -79,9 +74,9 @@ app.get("/listings/demouser",async(req,res)=>{
     res.send(member);
 });
 
-// app.get('/',(req,res)=>{
-//     res.send("Hi, i am a root");
-// });
+app.get('/',(req,res)=>{
+    res.send("Hi, i am a root");
+});
 
 // app.all("*",(req,res,next) => {
 //     next(new ExpressError(404,"Page not found!"));

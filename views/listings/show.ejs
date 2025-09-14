@@ -17,7 +17,7 @@
     <div class="btns">
         <a href="/listings/<%= listing._id %>/edit" class=" btn btn-dark cols-1 offset-4" style="background-color:#fe424d">Edit</a>
 
-    <form method="POST" action="/listing/<%= listing._id %>?_method=DELETE "  >
+    <form method="POST" action="/listings/<%= listing._id %>?_method=DELETE "  >
         <button class=" btn btn-dark cols-4 offset-5">
             Delete 
         </button>
@@ -55,7 +55,7 @@
                    </div>
                   
 
-                    <form class="mb-3" method="POST" action="/listings/<%= listing._id %>/reviews/<%= review._id %>?_method=DELETE">
+                    <form class="mb-3" method="POST" action="/listings/<%= listing._id %>/review/<%= review._id %>?_method=DELETE">
     <button class="btn btn-sm btn-dark">Delete</button>
 </form>
  </div>

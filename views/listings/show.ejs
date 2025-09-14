@@ -28,10 +28,10 @@
         <div class="card col-4 offset-4 mb-3">
             <hr>
             <h4>Leave a Review</h4>
-            <form action="/listings/<%= listing.id %>/review" method="POST" nonvalidate class="need-validation">
+            <form action="/listings/<%= listing.id %>/review" method="POST" novalidate class="needs-validation">
                 <div class="mb-3 mt-3">
                     <label for="rating">Rating</label>
-                    <input type="range" min="1" max="5" id="rating" name="review[rating]" class="form-range">
+                    <input type="range" min="1" max="5" id="rating" name="review[rating]" class="form-range" required>
                 </div>
                 <div class="mb-3 mt-3">
                     <label for="comment">Comment</label>
@@ -52,11 +52,12 @@
                             <h5 class="card-title">Jane Doe</h5>
                     <p class="card-text"><%= review.comment %></p>
                     <p class="card-text"><%= review.rating %>star</p>
-                    </div>
+                   </div>
+                   </div>
+
                     <form class="mb-3" method="POST" action="/listings/<%= listing._id %>/reviews/<%= review._id %>?_method=DELETE">
     <button class="btn btn-sm btn-dark">Delete</button>
 </form>
-                    </div>
                 <% } %>
             </div>
         </div>

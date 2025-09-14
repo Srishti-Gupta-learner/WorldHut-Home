@@ -162,9 +162,8 @@ app.post("/listings/:id/review",
     let newReview= new Review(req.body.review);
 
     listing.review.push(newReview);
-
+    await newReview.save();// Push only the ID
     await listing.save();
-    await newReview.save();
 
     res.redirect(`/listings/${listing._id}`);
 }));
@@ -181,10 +180,10 @@ app.delete("/listings/:id/reviews/:reviewId", wrapAsync(async(req,res)=>{
 //     next(new ExpressError(404,"Page not found!"));
 // });
 
-app.use((err, req,res,next)=>{
-    let{statusCode=500, message="Something went wrong"}=err;
-    res.render("error.ejs",{err});
-})
+// app.use((err, req,res,next)=>{
+//     let{statusCode=500, message="Something went wrong"}=err;
+//     res.render("error.ejs",{err});
+// })
 
 app.listen(8080,()=>{
     console.log("Server is listening to port");

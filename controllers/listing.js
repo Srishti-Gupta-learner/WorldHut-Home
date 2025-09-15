@@ -23,11 +23,14 @@ module.exports.showlist = async(req,res)=>{
 };
 
 module.exports.createlist = async(req,res,next)=>{
-        const newListing = new Listing(req.body.listing);
-        console.log(req.user);
-        newListing.owner= req.user._id;
-        await newListing.save();
-        res.redirect("/listings");
+    let url = req.file.path;
+    let filename = req.file.filename;
+     const newListing = new Listing(req.body.listing);
+     console.log(req.user);
+     newListing.owner= req.user._id;
+     newListing.image= {url, filename};
+     await newListing.save();
+     res.redirect("/listings");
 };
 
 module.exports.updatelist = async(req, res)=>{

@@ -4,6 +4,9 @@ const wrapAsync = require("../utils/wrapAsync.js");
 const ExpressError = require("../utils/ExpressError.js");
 const {listingSchema}= require("../schema.js");
 
+const multer  = require('multer');
+const {storage}= require("../cloudConfig.js");
+const upload = multer({ storage});
 
 const {isLoggedin}= require("../logware.js");
 
@@ -21,7 +24,9 @@ const validateListing= (req,res,next)=>{
 
 router.route("/")
 .get(wrapAsync(listingController.index)) //index route
-.post(isLoggedin, validateListing, wrapAsync(listingController.createlist));  //create route
+.post(isLoggedin, validateListing,
+    upload.single('listing[image]'),
+     wrapAsync(listingController.createlist));  //create route
 
 //new route
 router.get("/new", isLoggedin,listingController.new);

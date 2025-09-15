@@ -12,9 +12,8 @@ const listingSchema = new Schema({
         // required: true,
     },
     image:{
-        type: String,
-        default:"https://unsplash.com/photos/purple-plums-on-a-branch-with-yellow-background-9X_MX6NL6xw",
-       set:(v)=> v===""?"https://unsplash.com/photos/purple-plums-on-a-branch-with-yellow-background-9X_MX6NL6xw":v,
+        url: String,
+        filename: String,
     },
     price:{
         type: Number,

@@ -30,11 +30,15 @@ router.get("/new", isLoggedin,(req,res)=>{
 });
 
 //show route
-router.get("/:id",(async(req,res)=>{
+router.get("/:id",wrapAsync(async(req,res)=>{
     let {id}= req.params;
     const objectId = new mongoose.Types.ObjectId(id.trim());
      // new mongoose.Types.ObjectId()
-const listing = await Listing.findById(objectId).populate("review"); 
+    const listing = await Listing.findById(objectId).populate("reviews").populate("owner"); 
+    if(!listing){
+        req.flash("error","listing doesn't exist");
+        res.redirect("/listings");
+    }
     res.render("listings/show.ejs",{listing});
 }));
 
@@ -43,8 +47,10 @@ router.post("/",  isLoggedin,
     validateListing,
      wrapAsync(async(req,res,next)=>{
         const newListing = new Listing(req.body.listing);
-    await newListing.save();
-    res.redirect("/listings");
+        console.log(req.user);
+        newListing.owner= req.user._id;
+        await newListing.save();
+        res.redirect("/listings");
 }));
 
 //update route

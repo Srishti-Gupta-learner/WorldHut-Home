@@ -2,8 +2,7 @@ const express= require("express");
 const router= express.Router();
 const User = require("../models/user.js");
 const wrapAsync = require("../utils/wrapAsync");
-const passport= require("passport");
-const localStratagey = require("passport-local");   
+const passport= require("passport");  
 const {saveRedirectUrl } = require("../logware.js");
 
 //signup
@@ -12,7 +11,7 @@ router.get("/signup",(req,res)=>{
 })
 
 router.post("/signup", 
-    wrapAsync(async(req,res)=>{
+    wrapAsync(async(req,res,next)=>{
    try {
      let{username, email,password} = req.body;
     const newUser= new User({email, username});
@@ -42,7 +41,7 @@ router.post('/login', saveRedirectUrl,
        failureFlash: true,
     }),
    async(req, res) =>{
-    req.flash("You successfully Logged in!");
+    req.flash("succss","You successfully Logged in!");
     let redirectUrl =  res.locals.redirectUrl || "/listings" ;
     res.redirect(redirectUrl);
 });
@@ -52,10 +51,9 @@ router.get("/logout",(req,res,next)=>{
         if(err){
             return next(err);
     }
-    req.flash("You logged out!");
+    req.flash("succss","You logged out!");
     res.redirect("/listings");
-    }),
-    next();
+    })
 });
 
 module.exports = router;

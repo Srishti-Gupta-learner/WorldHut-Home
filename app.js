@@ -78,14 +78,15 @@ app.get('/',(req,res)=>{
     res.send("Hi, i am a root");
 });
 
-// app.all("*",(req,res,next) => {
+// app.use((req,res,next) => {
 //     next(new ExpressError(404,"Page not found!"));
 // });
 
 // app.use((err, req,res,next)=>{
 //     let{statusCode=500, message="Something went wrong"}=err;
 //     res.render("error.ejs",{err});
-// })
+// });
+
 
 app.listen(8080,()=>{
     console.log("Server is listening to port");

@@ -32,6 +32,8 @@ module.exports.postlogin = async(req, res) =>{
     req.flash("succss","You successfully Logged in!");
     let redirectUrl =  res.locals.redirectUrl || "/listings" ;
     res.redirect(redirectUrl);
+
+
 };
 
 module.exports.logout = (req,res,next)=>{

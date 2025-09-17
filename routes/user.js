@@ -10,9 +10,13 @@ router.route("/signup")
 .get(userControllers.signupindex)  //signup
 .post( wrapAsync(userControllers.postsignup));
 
+// router.use(express.urlencoded({ extended: true }));
+// router.use(express.json());
+
+
 router.route("/login")        //login
 .get(userControllers.loginindex)
-.post(saveRedirectUrl,passport.authenticate('local', 
+.post( saveRedirectUrl,passport.authenticate('local', 
     { failureRedirect: '/login',
        failureFlash: true,
     }),userControllers.postlogin);

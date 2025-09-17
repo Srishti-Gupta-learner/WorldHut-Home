@@ -69,19 +69,6 @@ app.use("/listings", listingRouter);
 app.use("/listings/:id/review", reviewRouter);
 app.use("/", userRouter);
 
-// app.get("/listings/demouser",async(req,res)=>{
-//     const demouser= new User({
-//         email:"drtsrhoup@gmail.com",
-//         username:"Sushil",
-//     });
-//     let member= await User.register(demouser, "12345");
-//     res.send(member);
-// });
-
-app.get('/',(req,res)=>{
-    res.send("Hi, i am a root");
-});
-
 // app.use((req,res,next) => {
 //     next(new ExpressError(404,"Page not found!"));
 // });
@@ -90,7 +77,6 @@ app.get('/',(req,res)=>{
 //     let{statusCode=500, message="Something went wrong"}=err;
 //     res.render("error.ejs",{err});
 // });
-
 
 app.listen(8080,()=>{
     console.log("Server is listening to port");

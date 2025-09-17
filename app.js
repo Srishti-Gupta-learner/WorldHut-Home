@@ -69,14 +69,14 @@ app.use("/listings", listingRouter);
 app.use("/listings/:id/review", reviewRouter);
 app.use("/", userRouter);
 
-app.get("/listings/demouser",async(req,res)=>{
-    const demouser= new User({
-        email:"drtsrhoup@gmail.com",
-        username:"Sushil",
-    });
-    let member= await User.register(demouser, "12345");
-    res.send(member);
-});
+// app.get("/listings/demouser",async(req,res)=>{
+//     const demouser= new User({
+//         email:"drtsrhoup@gmail.com",
+//         username:"Sushil",
+//     });
+//     let member= await User.register(demouser, "12345");
+//     res.send(member);
+// });
 
 app.get('/',(req,res)=>{
     res.send("Hi, i am a root");

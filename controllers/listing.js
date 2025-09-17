@@ -35,7 +35,14 @@ module.exports.createlist = async(req,res,next)=>{
 
 module.exports.updatelist = async(req, res)=>{
      let {id}= req.params;
-     await Listing.findByIdAndUpdate(id, {...req.body.listing});
+     let listing = await Listing.findByIdAndUpdate(id, {...req.body.listing});
+      let url = req.file.path;
+    if( typeof req.file !== "undefined"){}
+    let filename = req.file.filename;
+     listing.image= {url, filename};
+     await listing.save();
+      newListing.image= {url, filename};
+     req.flash("success");
      res.redirect(`/listings/${id}`);
 };
 

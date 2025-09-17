@@ -13,8 +13,11 @@
               <input type="textarea" name="listing[description]" class="form-control"> <%= listing.description %> </textarea> 
         </div>
          <div class="mb-3">
+            <img src="<% listing.image.url %>" />
+        </div>
+         <div class="mb-3">
             <label for="image" class="form-label">Image:</label>
-            <input type="text" name="listing[image]" value="<%= listing.image %>" class="form-control">
+            <input type="text" name="listing[image]" type="file" class="form-control">
         </div>
         <div class="mb-3">
             <label for="price" class="form-label">Price:</label>

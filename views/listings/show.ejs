@@ -13,6 +13,7 @@
           <% } %>
        </p>
         <p class="card-text"><%=listing.description %></p> 
+         <!-- <p class="card-text"> Category: <%=listing.category %></p> -->
        <p class="card-text"> &#8377; <%= listing.price.toLocaleString("en-IN") %>/night</p>
         <p class="card-text"><%=listing.location %></p>
        <p class="card-text"> <%=listing.country %></p>
@@ -20,7 +21,7 @@
   </div>
     </div>
     
-    <% if(currUser && currUser._id.equals(listing.owner)) { %>
+
     <div class="btns">
         <a href="/listings/<%= listing._id %>/edit" class=" btn btn-dark cols-1 offset-4" style="background-color:#fe424d">Edit</a>
 
@@ -29,7 +30,7 @@
             Delete 
         </button>
     </div>
-    <% } %>
+
   
 
       </form>

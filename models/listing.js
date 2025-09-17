@@ -35,13 +35,16 @@ const listingSchema = new Schema({
     owner:{
         type: mongoose.Schema.Types.ObjectId,
         ref: "User",
+    },
+    category:{
+        type: String,
+        enym: ["mountains","rooms","Trending","Iconic city","beach","pools","Forests","Campaning","Farms","Domes","Island","hills","Dinnerdate","Religiouscity","Hotels","Tree-house","Historic","Houseboat"],
     }
 });
 
 listingSchema.post("findOneAndDelete", async(listing)=>{
     if(listing){
          await Review.deleteMany(_id, {$in: listing.review });
-         
     }
 });
 

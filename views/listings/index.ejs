@@ -5,7 +5,70 @@
     <form action="/listing/new" method="GET">
         <!-- <button>Create new listing</button> -->
     </form>
-    <h3 class="mb-3 mt-3">All Listing</h3>
+
+    <div class="filters">
+      <div id="filters">
+        <div><i class="fa-solid fa-fire"></i></div><p>Trending</p>
+      </div>
+      <div id="filters">
+        <div><i class="fa-solid fa-bed"></i></div><p>Room</p>
+      </div>
+      <div id="filters">
+       <div><i class="fa-solid fa-mountain-city"></i></div> <p>Iconic city</p>
+      </div>
+       <div id="filters">
+       <div> <i class="fa-solid fa-umbrella-beach"></i>  </div> <p>Beaches</p>
+      </div>
+      <div id="filters">
+       <div> <i class="fa-solid fa-person-swimming"></i>  </div> <p>Pools</p>
+      </div>
+      <div id="filters">
+       <div>  <i class="fa-solid fa-tree"></i> </div> <p>Forests</p>
+      </div>
+       <div id="filters">
+        <div><i class="fa-solid fa-fire"></i></div><p>Campaning</p>
+      </div>
+      <div id="filters">
+        <div><i class="fa-solid fa-cow"></i></div><p>Farm</p>
+      </div>
+      <div id="filters">
+       <div><i class="fa-solid fa-igloo"></i></div> <p>Domes</p>
+      </div>
+       <div id="filters">
+       <div> <i class="fa-solid fa-ship"></i> </div> <p>Islands</p>
+      </div>
+      <div id="filters">
+       <div> <i class="fa-solid fa-hill-avalanche"></i> </div> <p>Hills</p>
+      </div>
+      <div id="filters">
+       <div> <i class="fa-solid fa-utensils"></i> </div> <p>Dinner Dates</p>
+      </div>
+           <div id="filters">
+       <div><i class="fa-solid fa-gopuram"></i></div> <p>Religous cities</p>
+      </div>
+        <div id="filters">
+       <div><i class="fa-solid fa-hotel"></i></div> <p>Hotels</p>
+      </div>
+        <div id="filters">
+       <div><i class="fa-solid fa-tree-city"></i></div> <p>Tree House</p>
+      </div>
+        <div id="filters">
+       <div><i class="fa-solid fa-monument"></i></div> <p>Historic</p>
+      </div>
+        <div id="filters">
+       <div><i class="fa-solid fa-sailboat"></i></div> <p>Houseboat</p>
+      </div>
+      
+
+      <div class="toogle-switch mt-3" >
+        <div class="form-check form-switch">
+           <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault">
+           <label class="form-check-label" for="switchCheckDefault">Display Taxes</label>
+        </div>
+      </div>
+      
+    </div>
+    
 
     <div class="row row-cols-xxl-5 row-cols-xl-4  row-cols-lg-3 row-cols-md-2 row-cols-sm-1">
          <% for(let listing of allListing){ %>

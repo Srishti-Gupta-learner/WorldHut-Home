@@ -2,7 +2,7 @@ const Listing = require("../models/listing.js");
 const User = require("../models/user.js");
 
 module.exports.signupindex = (req,res)=>{
-    res.render("user/signup");
+    res.render("user/signup.ejs");
 };
 
 module.exports.postsignup = async(req,res,next)=>{
@@ -32,8 +32,6 @@ module.exports.postlogin = async(req, res) =>{
     req.flash("succss","You successfully Logged in!");
     let redirectUrl =  res.locals.redirectUrl || "/listings" ;
     res.redirect(redirectUrl);
-
-
 };
 
 module.exports.logout = (req,res,next)=>{

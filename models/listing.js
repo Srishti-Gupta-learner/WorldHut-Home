@@ -36,10 +36,11 @@ const listingSchema = new Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: "User",
     },
-    category:{
+    category: {
         type: String,
-        enym: ["mountains","rooms","Trending","Iconic city","beach","pools","Forests","Campaning","Farms","Domes","Island","hills","Dinnerdate","Religiouscity","Hotels","Tree-house","Historic","Houseboat"],
-    }
+        enum: [ "mountains","Rooms","Trending", "Iconic-city","Beach","pools","Forests","Campaning","Farms",   "Domes",      "Island", "Hills", "Dinnerdate", "Religiouscity", "Hotels", "Tree-house", "Historic", "Houseboat"],
+        required:true,
+},
 });
 
 listingSchema.post("findOneAndDelete", async(listing)=>{

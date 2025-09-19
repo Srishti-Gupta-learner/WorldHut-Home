@@ -1,10 +1,21 @@
 const Listing = require("../models/listing");
 const mongoose = require("mongoose");
 
-module.exports.index= async(req,res)=>{
-    const allListing = await Listing.find({});
-    res.render("listings/index.ejs",{allListing});
+module.exports.index = async (req,res)=>{
+    let { category } = req.query; 
+    
+    if (category) {
+        allListing = await Listing.find({ category: category });
+    } else {
+        allListing = await Listing.find({});
+    }
+    res.render("listings/index.ejs", { allListing });
 };
+
+// module.exports.index= async(req,res)=>{
+//     const allListing = await Listing.find({});
+//     res.render("listings/index.ejs",{allListing});
+// };
 
 module.exports.new = (req,res)=>{
     res.render("listings/new.ejs");
@@ -14,7 +25,9 @@ module.exports.showlist = async(req,res)=>{
     let {id}= req.params;
     const objectId = new mongoose.Types.ObjectId(id.trim());
      // new mongoose.Types.ObjectId()
-    const listing = await Listing.findById(objectId).populate("review").populate("owner"); 
+    const listing = await Listing.findById(objectId)
+    .populate({path:"review",populate:{path:"author.username",}, })
+    .populate("owner"); 
     if(!listing){
         req.flash("error","listing doesn't exist");
         res.redirect("/listings");
@@ -35,13 +48,13 @@ module.exports.createlist = async(req,res,next)=>{
 
 module.exports.updatelist = async(req, res)=>{
      let {id}= req.params;
-     let listing = await Listing.findByIdAndUpdate(id, {...req.body.listing});
-      let url = req.file.path;
-    if( typeof req.file !== "undefined"){}
-    let filename = req.file.filename;
+     await Listing.findByIdAndUpdate(id, {...req.body.listing});
+     let url = req.file.path;
+     if( typeof req.file !== "undefined"){}
+     let filename = req.file.filename;
      listing.image= {url, filename};
      await listing.save();
-      newListing.image= {url, filename};
+     newListing.image= {url, filename};
      req.flash("success");
      res.redirect(`/listings/${id}`);
 };

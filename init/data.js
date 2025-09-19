@@ -23,7 +23,7 @@ const sampleListings = [
     price: 1200,
     location: "New York City",
     country: "United States",
-     category: "island",
+     category: "Island",
   },
   {
     title: "Mountain Retreat",
@@ -49,7 +49,7 @@ const sampleListings = [
     price: 2500,
     location: "Florence",
     country: "Italy",
-     category: "historic",
+     category: "Historic",
   },
   {
     title: "Secluded Treehouse Getaway",
@@ -62,7 +62,7 @@ const sampleListings = [
     price: 800,
     location: "Portland",
     country: "United States",
-     category: "Tree House",
+     category: "Tree-house",
   },
   {
     title: "Beachfront Paradise",
@@ -75,7 +75,7 @@ const sampleListings = [
     price: 2000,
     location: "Cancun",
     country: "Mexico",
-     category: "beach",
+     category: "Beach",
   },
   {
     title: "Rustic Cabin by the Lake",
@@ -88,7 +88,7 @@ const sampleListings = [
     price: 900,
     location: "Lake Tahoe",
     country: "United States",
-     category: "Mountains",
+     category: "mountains",
   },
   {
     title: "Luxury Penthouse with City Views",
@@ -205,7 +205,7 @@ const sampleListings = [
     price: 1500,
     location: "Banff",
     country: "Canada",
-     category: "Mountains",
+     category: "mountains",
   },
   {
     title: "Art Deco Apartment in Miami",
@@ -231,7 +231,7 @@ const sampleListings = [
     price: 3000,
     location: "Phuket",
     country: "Thailand",
-     category: "Forest",
+     category: "Forests",
   },
   {
     title: "Historic Castle in Scotland",
@@ -270,7 +270,7 @@ const sampleListings = [
     price: 1100,
     location: "Montana",
     country: "United States",
-     category: "Forest",
+     category: "Forests",
   },
   {
     title: "Beachfront Villa in Greece",
@@ -296,7 +296,7 @@ const sampleListings = [
     price: 750,
     location: "Costa Rica",
     country: "Costa Rica",
-     category: "Tree House",
+     category: "Tree-house",
   },
   {
     title: "Historic Cottage in Charleston",

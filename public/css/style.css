@@ -73,4 +73,6 @@ body{
     height: 6vh;
     border-radius: 1em;
 }
-
+.taxinfo{
+    display: none;
+}

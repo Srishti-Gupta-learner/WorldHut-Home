@@ -257,7 +257,7 @@ const sampleListings = [
     price: 5000,
     location: "Dubai",
     country: "United Arab Emirates",
-     category: "Desert",
+     category: "Trending",
   },
   {
     title: "Rustic Log Cabin in Montana",

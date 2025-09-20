@@ -7,9 +7,13 @@ const User = require("../models/user");
 
 const userControllers = require("../controllers/user");
 
-router.route("/signup")
-.get(userControllers.signupindex)  //signup
-.post( wrapAsync(userControllers.postsignup));
+// router.route("/signup")
+// .get(userControllers.signupindex)  //signup
+// .post( wrapAsync(userControllers.postsignup));
+
+
+router.get('/signup', userControllers.signupindex); // Make sure this is here
+router.post('/signup', userControllers.postsignup);
 
 router.route("/login")        //login
 .get(userControllers.loginindex)

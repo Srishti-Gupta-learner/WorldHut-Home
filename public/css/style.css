@@ -78,6 +78,106 @@ body{
 }
 
 /* footer */
+.footer {
+    background: #fff;
+    border-top: 1px solid #e5e7eb;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    color: #333;
+  }
+  
+  .footer-top {
+    max-width: 1200px;
+    margin: auto;
+    padding: 3rem 1.5rem;
+  }
+  
+  .footer-top h3 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    color: #111;
+    text-align: center;
+  }
+  
+  .footer-links {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 3rem;
+  }
+  
+  .footer-links h4 {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    color: #111;
+    font-weight: 600;
+  }
+
+  
+  .footer-links a {
+    display: block;
+    margin-bottom: 0.7rem;
+    font-size: 0.95rem;
+    text-decoration: none;
+    color: #555;
+    transition: all 0.3s ease;
+  }
+  
+  .footer-links a:hover {
+    color: #ff385c;
+    transform: translateX(3px);
+  }
+  
+  .footer-bottom {
+    border-top: 1px solid #e5e7eb;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 1.5rem;
+    font-size: 0.9rem;
+    max-width: 1200px;
+    margin: auto;
+    gap: 1rem;
+  }
+  
+  .footer-bottom p {
+    color: #555;
+    line-height: 1.6;
+  }
+  
+  .footer-bottom a {
+    color: #444;
+    text-decoration: none;
+    margin: 0 0.4rem;
+    transition: color 0.3s;
+  }
+  
+  .footer-bottom a:hover {
+    color: #ff385c;
+  }
+  
+  .footer-bottom-right {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+  }
+  
+  .footer-btn {
+    border: 1px solid #e5e7eb;
+    background: #f9fafb;
+    font-size: 0.9rem;
+    color: #333;
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+  
+  .footer-btn:hover {
+    background: #fff;
+    border-color: #ff385c;
+    color: #ff385c;
+  }
 
 .f-info-links a {
     text-decoration: none;
@@ -109,4 +209,9 @@ body{
     flex-wrap: wrap;
     justify-content: center;
     align-items:space-evenly;
+}
+
+#map { 
+    height: 400px; 
+    width: 80vh;
 }

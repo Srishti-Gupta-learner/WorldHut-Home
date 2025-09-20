@@ -15,7 +15,7 @@ module.exports.postsignup = async(req,res,next)=>{
         if(err){
             return next(err);
         }
-         req.flash("Welcome to WorldHut");
+         req.flash("Success","You successfully signed up!'");
     res.redirect("/listings");
     });
    } catch (e) {
@@ -29,7 +29,7 @@ module.exports.loginindex = (req,res)=>{
 };
 
 module.exports.postlogin = async(req, res) =>{
-    req.flash("succss","You successfully Logged in!");
+    req.flash("success","You successfully Logged in!");
     let redirectUrl =  res.locals.redirectUrl || "/listings" ;
     res.redirect(redirectUrl);
 };
@@ -39,7 +39,7 @@ module.exports.logout = (req,res,next)=>{
         if(err){
             return next(err);
     }
-    req.flash("succss","You logged out!");
+    req.flash("success","You logged out!");
     res.redirect("/listings");
     })
 };
